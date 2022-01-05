@@ -3,6 +3,8 @@ import constants from "./constants";
 import Actions from "./Actions";
 import Util from "./Util";
 import ToolTipTourguide from "./ToolTipTourguide";
+import './i18n';
+import { Trans } from "react-i18next";
 
 const TARGET_TYPES = {
   file: "file",
@@ -86,7 +88,7 @@ class BinaryLoader extends React.Component<{}, State> {
                   className="pointer"
                   onClick={() => this.setState({ target_type: TARGET_TYPES.file })}
                 >
-                  Load Binary
+                  <Trans>Load Binary</Trans>
                 </a>
               </li>
               <li>
@@ -94,7 +96,7 @@ class BinaryLoader extends React.Component<{}, State> {
                   className="pointer"
                   onClick={() => this.setState({ target_type: TARGET_TYPES.server })}
                 >
-                  Connect to gdbserver
+                  <Trans>Connect to gdbserver</Trans>
                 </a>
               </li>
               <li>
@@ -102,7 +104,7 @@ class BinaryLoader extends React.Component<{}, State> {
                   className="pointer"
                   onClick={() => this.setState({ target_type: TARGET_TYPES.process })}
                 >
-                  Attach to Process
+                  <Trans>Attach to Process</Trans>
                 </a>
               </li>
             </ul>
@@ -113,7 +115,7 @@ class BinaryLoader extends React.Component<{}, State> {
               onClick={this.click_set_target_app.bind(this)}
               className="btn btn-primary"
             >
-              {button_text}
+              <Trans>{button_text}</Trans>
             </button>
           </div>
 
@@ -134,10 +136,10 @@ class BinaryLoader extends React.Component<{}, State> {
           position={"bottomcenter"}
           content={
             <div>
-              <h5>Enter the path to the binary you wish to debug here.</h5>
-              <p>This is the first thing you should do.</p>
+              <h5><Trans>Enter the path to the binary you wish to debug here.</Trans></h5>
+              <p><Trans>This is the first thing you should do.</Trans></p>
               <p>
-                The path can be absolute, or relative to where gdbgui was launched from.
+              <Trans>The path can be absolute, or relative to where gdbgui was launched from.</Trans>
               </p>
             </div>
           }
@@ -148,18 +150,14 @@ class BinaryLoader extends React.Component<{}, State> {
           position={"bottomleft"}
           content={
             <div>
-              <h5>Press this button to load the executable specified in the input.</h5>
-              <p>This is the second thing you should do.</p>
+              <h5><Trans>Press this button to load the executable specified in the input.</Trans></h5>
+              <p><Trans>This is the second thing you should do.</Trans></p>
 
               <p>
-                Debugging won't start, but you will be able to set breakpoints. If
-                present,{" "}
-                <a href="https://en.wikipedia.org/wiki/Debug_symbol">debugging symbols</a>{" "}
-                in the binary are also loaded.
+                <Trans>Debugging won't start, but you will be able to set breakpoints. If present,{" "} <a href="https://en.wikipedia.org/wiki/Debug_symbol">debugging symbols</a>{" "} in the binary are also loaded.</Trans>
               </p>
               <p>
-                If you don't want to debug a binary, click the dropdown to choose a
-                different target type.
+                <Trans>If you don't want to debug a binary, click the dropdown to choose a different target type.</Trans>
               </p>
             </div>
           }

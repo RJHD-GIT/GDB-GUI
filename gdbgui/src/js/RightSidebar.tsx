@@ -16,6 +16,8 @@ import Registers from "./Registers";
 import Tree from "./Tree";
 import Threads from "./Threads";
 import ToolTipTourguide from "./ToolTipTourguide";
+import { Trans } from "react-i18next";
+import { t } from "i18next";
 
 let onmouseup_in_parent_callbacks: any = [],
   onmousemove_in_parent_callbacks: any = [];
@@ -107,7 +109,7 @@ class Collapser extends React.Component<{}, CollapserState> {
             cursor: "pointer"
           }}
         >
-          reset height
+          <Trans>reset height</Trans>
         </span>
       );
     }
@@ -161,6 +163,7 @@ class Collapser extends React.Component<{}, CollapserState> {
 }
 
 class RightSidebar extends React.Component {
+
   render() {
     let input_style = {
         display: "inline",
@@ -191,35 +194,31 @@ class RightSidebar extends React.Component {
           content={
             <div>
               <h5>
-                This sidebar contains a visual, interactive representation of the state of
-                your program
+                <Trans>This sidebar contains a visual, interactive representation of the state of your program</Trans>
               </h5>
               <p>
-                You can see which function the process is stopped in, explore variables,
-                and much more.
+                <Trans>You can see which function the process is stopped in, explore variables,and much more.</Trans>
               </p>
               <p>
-                There is more to discover, but this should be enough to get you started.
+                <Trans>There is more to discover, but this should be enough to get you started.</Trans>
               </p>
               <p>
-                Something missing? Found a bug?{" "}
-                <a href="https://github.com/cs01/gdbgui/issues/">Create an issue</a> on
-                github.
+                <Trans>Something missing? Found a bug?{" "} <a href="https://github.com/cs01/gdbgui/issues/">Create an issue</a> on github.</Trans>
               </p>
 
-              <p>Happy debugging!</p>
+              <p><Trans>Happy debugging!</Trans></p>
             </div>
           }
           step_num={5}
         />
 
         {/* @ts-expect-error ts-migrate(2322) FIXME: Property 'title' does not exist on type 'Intrinsic... Remove this comment to see the full error message */}
-        <Collapser title="threads" content={<Threads />} />
+        <Collapser title="threads" content={<Threads />} /> 
+        {/* @ts-expect-error ts-migrate(2322) FIXME: Property 'title' does not exist on type 'Intrinsic... Remove this comment to see the full error message */}
+        <Trans><Collapser id="locals" title="local variables" content={<Locals />} /></Trans> 
 
         {/* @ts-expect-error ts-migrate(2322) FIXME: Property 'title' does not exist on type 'Intrinsic... Remove this comment to see the full error message */}
-        <Collapser id="locals" title="local variables" content={<Locals />} />
-        {/* @ts-expect-error ts-migrate(2322) FIXME: Property 'title' does not exist on type 'Intrinsic... Remove this comment to see the full error message */}
-        <Collapser id="expressions" title="expressions" content={<Expressions />} />
+        <Collapser id="expressions" title="expressions" content={<Expressions />} /> 
         <Collapser
           // @ts-expect-error ts-migrate(2322) FIXME: Property 'title' does not exist on type 'Intrinsic... Remove this comment to see the full error message
           title="Tree"
@@ -240,19 +239,19 @@ class RightSidebar extends React.Component {
               <div id={constants.tree_component_id} />
             </div>
           }
-        />
+        /> 
         {/* @ts-expect-error ts-migrate(2322) FIXME: Property 'title' does not exist on type 'Intrinsic... Remove this comment to see the full error message */}
-        <Collapser id="memory" title="memory" content={<Memory />} />
+        <Collapser id="memory" title="memory" content={<Memory />}  />
         {/* @ts-expect-error ts-migrate(2322) FIXME: Property 'title' does not exist on type 'Intrinsic... Remove this comment to see the full error message */}
-        <Collapser title="breakpoints" content={<Breakpoints />} />
+        <Collapser title="breakpoints" content={<Breakpoints />} />  
         <Collapser
           // @ts-expect-error ts-migrate(2322) FIXME: Property 'title' does not exist on type 'Intrinsic... Remove this comment to see the full error message
           title="signals"
           // @ts-expect-error ts-migrate(2322) FIXME: Property 'signals' does not exist on type 'Intrins... Remove this comment to see the full error message
           content={<InferiorProgramInfo signals={this.props.signals} />}
-        />
+        /> 
         {/* @ts-expect-error ts-migrate(2322) FIXME: Property 'title' does not exist on type 'Intrinsic... Remove this comment to see the full error message */}
-        <Collapser title="registers" collapsed={true} content={<Registers />} />
+        <Collapser title="registers" collapsed={true} content={<Registers />} /> 
 
         {mi_output}
       </div>

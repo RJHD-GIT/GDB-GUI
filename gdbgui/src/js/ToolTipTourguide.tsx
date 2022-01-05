@@ -1,6 +1,7 @@
 import React from "react";
 import Util from "./Util";
 import { store } from "statorgfc";
+import { Trans } from "react-i18next";
 
 type State = any;
 
@@ -109,7 +110,7 @@ class ToolTipTourguide extends React.Component<{}, State> {
     let is_last_step = this.props.step_num + 1 === this.state.num_tour_guide_steps,
       dismiss = is_last_step ? null : (
         <span className="btn btn-default pointer" onClick={ToolTipTourguide.dismiss}>
-          Dismiss
+          <Trans>Dismiss</Trans>
         </span>
       );
     return (
@@ -141,7 +142,7 @@ class ToolTipTourguide extends React.Component<{}, State> {
         <p />
         {dismiss}
         <span className="btn btn-primary pointer" onClick={ToolTipTourguide.next}>
-          {is_last_step ? "Finish" : "Next"}
+          {is_last_step ? <Trans>Finish</Trans> : <Trans>Next</Trans>}
         </span>
       </div>
     );

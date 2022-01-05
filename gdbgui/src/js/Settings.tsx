@@ -2,6 +2,7 @@ import { store } from "statorgfc";
 import Actions from "./Actions";
 import ToolTip from "./ToolTip";
 import React from "react";
+import { Trans } from "react-i18next";
 
 /**
  * Settings modal when clicking the gear icon
@@ -57,7 +58,7 @@ class Settings extends React.Component {
     return (
       <tr>
         <td>
-          Maximum number of source file lines to display:
+          <Trans>Maximum number of source file lines to display:</Trans>
           <input
             style={{ width: "100px", marginLeft: "10px" }}
             defaultValue={store.get("max_lines_of_code_to_fetch")}
@@ -72,7 +73,7 @@ class Settings extends React.Component {
               ToolTip.show_tooltip_on_node("saved!", this.save_button, 1);
             }}
           >
-            save
+            <Trans>save</Trans>
           </button>
         </td>
       </tr>
@@ -84,29 +85,29 @@ class Settings extends React.Component {
         <tbody>
           {Settings.get_checkbox_row(
             "auto_add_breakpoint_to_main",
-            "Add breakpoint to main after loading executable"
+            <Trans>Add breakpoint to main after loading executable</Trans>
           )}
           {this.get_update_max_lines_of_code_to_fetch()}
           {Settings.get_checkbox_row(
             "pretty_print",
-            "Pretty print dynamic variables (requires restart)"
+            <Trans>Pretty print dynamic variables (requires restart)</Trans>
           )}
           {Settings.get_checkbox_row(
             "refresh_state_after_sending_console_command",
-            "Refresh all components when a command is sent from the console"
+            <Trans>Refresh all components when a command is sent from the console</Trans>
           )}
           {Settings.get_checkbox_row(
             "show_all_sent_commands_in_console",
-            "Print all sent commands in console, including those sent automatically by gdbgui"
+            <Trans>Print all sent commands in console, including those sent automatically by gdbgui</Trans>
           )}
           {Settings.get_checkbox_row(
             "highlight_source_code",
-            "Add syntax highlighting to source files"
+            <Trans>Add syntax highlighting to source files</Trans>
           )}
 
           <tr>
             <td>
-              Theme:{" "}
+            <Trans>Theme</Trans>:{" "}
               <select
                 value={store.get("current_theme")}
                 onChange={function(e) {
@@ -140,7 +141,7 @@ class Settings extends React.Component {
           <button className="close" onClick={() => Settings.toggle_key("show_settings")}>
             ×
           </button>
-          <h4>Settings</h4>
+          <h4><Trans>Settings</Trans></h4>
           {this.get_table()}
           <div className="modal-footer" style={{ marginTop: "20px" }}>
             <button
@@ -148,7 +149,7 @@ class Settings extends React.Component {
               onClick={() => Settings.toggle_key("show_settings")}
               data-dismiss="modal"
             >
-              Close
+              <Trans>Close</Trans>
             </button>
           </div>
         </div>

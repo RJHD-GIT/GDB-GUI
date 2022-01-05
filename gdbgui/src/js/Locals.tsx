@@ -4,6 +4,7 @@
  */
 
 import React from "react";
+import { Trans } from "react-i18next";
 import { store } from "statorgfc";
 import GdbVariable from "./GdbVariable";
 
@@ -50,7 +51,7 @@ class Locals extends React.Component {
     if (content.length === 0) {
       return (
         <span key="empty" className="placeholder">
-          no locals in this context
+          <Trans>no locals in this context</Trans>
         </span>
       );
     } else {

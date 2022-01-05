@@ -11,6 +11,7 @@ import GdbApi from "./GdbApi";
 import Actions from "./Actions";
 import constants from "./constants";
 import Util from "./Util";
+import { Trans } from "react-i18next";
 
 let onkeyup_jump_to_line = (e: any) => {
   if (e.keyCode === constants.ENTER_BUTTON_NUM) {
@@ -63,13 +64,13 @@ let show_session_info = function() {
       <table>
         <tbody>
           <tr>
-            <td>gdb version: {store.get("gdb_version")}</td>
+            <td><Trans>gdb version</Trans>: {store.get("gdb_version")}</td>
           </tr>
           <tr>
-            <td>gdb pid for this tab: {store.get("gdb_pid")}</td>
+            <td><Trans>gdb pid for this tab</Trans>: {store.get("gdb_pid")}</td>
           </tr>
           <tr>
-            <td>gdbgui v{store.get("gdbgui_version")}</td>
+            <td><Trans>gdbgui</Trans> v{store.get("gdbgui_version")}</td>
           </tr>
         </tbody>
       </table>
@@ -95,7 +96,7 @@ const menu = (
       <ul className="dropdown-menu">
         <li>
           <a title="dashboard" className="pointer" href="/dashboard">
-            Dashboard
+            <Trans>Dashboard</Trans>
           </a>
         </li>
         <li>
@@ -104,42 +105,42 @@ const menu = (
             className="pointer"
             onClick={ToolTipTourguide.start_guide}
           >
-            Show Guide
+            <Trans>Show Guide</Trans>
           </a>
         </li>
         <li>
           <a onClick={show_session_info} className="pointer">
-            Session Information
+            <Trans>Session Information</Trans>
           </a>
         </li>
 
         <li role="separator" className="divider" />
         <li>
           <a href="https://github.com/cs01/gdbgui" className="pointer">
-            GitHub
+            <Trans>GitHub</Trans>
           </a>
         </li>
         <li>
           <a href="http://gdbgui.com" className="pointer">
-            Homepage
+            <Trans>Homepage</Trans>
           </a>
         </li>
 
         <li>
           <a href="https://www.youtube.com/channel/UCUCOSclB97r9nd54NpXMV5A">
-            YouTube Channel
+            <Trans>YouTube Channel</Trans>
           </a>
         </li>
 
         <li role="separator" className="divider" />
         <li>
           <a onClick={show_license} className="pointer">
-            License
+            <Trans>License</Trans>
           </a>
         </li>
         <li>
           <a onClick={About.show_about} className="pointer">
-            About gdbgui
+            <Trans>About gdbgui</Trans>
           </a>
         </li>
       </ul>
@@ -151,11 +152,9 @@ const menu = (
         step_num={0}
         content={
           <div>
-            <h5>Welcome to gdbgui.</h5>
+            <h5><Trans>Welcome to gdbgui.</Trans></h5>
             <p>
-              This guide can be shown at any time by clicking the menu button,
-              <span className="glyphicon glyphicon-menu-hamburger"> </span>, then clicking
-              "Show Guide".
+              <Trans>This guide can be shown at any time by clicking the menu button,<span className="glyphicon glyphicon-menu-hamburger"> </span>, then clicking "Show Guide".</Trans>
             </p>
           </div>
         }
@@ -238,17 +237,13 @@ class TopBar extends React.Component<{}, State> {
           content={
             <div>
               <h5>
-                These buttons allow you to control execution of the target you are
-                debugging.
+                <Trans>These buttons allow you to control execution of the target you are debugging.</Trans>
               </h5>
               <p>
-                Hover over these buttons to see a description of their action. For
-                example, the <span className="glyphicon glyphicon-repeat" /> button starts
-                (or restarts) a program from the beginning.
+                <Trans>Hover over these buttons to see a description of their action. For example, the <span className="glyphicon glyphicon-repeat" /> button starts (or restarts) a program from the beginning.</Trans>
               </p>
               <p>
-                Each button has a keyboard shortcut. For example, you can press "r" to
-                start running.
+                <Trans>Each button has a keyboard shortcut. For example, you can press "r" to start running.</Trans>
               </p>
             </div>
           }
@@ -296,7 +291,7 @@ class TopBar extends React.Component<{}, State> {
         title="Erase file from local cache and re-fetch it"
         className={"btn btn-default btn-xs " + reload_button_disabled}
       >
-        <span>reload file</span>
+        <span><Trans>reload file</Trans></span>
       </button>
     );
 
@@ -330,7 +325,7 @@ class TopBar extends React.Component<{}, State> {
             store.set("debug_in_reverse", e.target.checked);
           }}
         />
-        reverse
+        <Trans>reverse</Trans>
       </label>
     );
 
@@ -399,7 +394,7 @@ class TopBar extends React.Component<{}, State> {
                   .setSizes([new_file_explorer_size, new_source_size, new_sidebar_size]);
               }}
             >
-              {store.get("show_filesystem") ? "hide filesystem" : "show filesystem"}
+              {store.get("show_filesystem") ? <Trans>hide filesystem</Trans> : <Trans>show filesystem</Trans>}
             </button>
 
             <button
@@ -408,7 +403,7 @@ class TopBar extends React.Component<{}, State> {
               title="fetch disassembly"
               className="btn btn-default btn-xs"
             >
-              <span>fetch disassembly</span>
+              <span><Trans>fetch disassembly</Trans></span>
             </button>
 
             {reload_button}

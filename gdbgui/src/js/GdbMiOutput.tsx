@@ -7,6 +7,7 @@
  * message in gdbgui.
  */
 import React from "react";
+import { Trans } from "react-i18next";
 import { store } from "statorgfc";
 
 type State = any;
@@ -37,7 +38,7 @@ class GdbMiOutput extends React.Component<{}, State> {
           className="pointer btn btn-default btn-xs"
           onClick={() => store.set("gdb_mi_output", [])}
         >
-          clear output
+          <Trans>clear output</Trans>
           <span className="glyphicon glyphicon-ban-circle pointer" />
         </button>
         <div id="gdb_mi_output" className="otpt" style={{ fontSize: "0.8em" }}>

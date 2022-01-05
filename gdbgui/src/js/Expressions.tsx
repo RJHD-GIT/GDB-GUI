@@ -2,6 +2,7 @@ import React from "react";
 import { store } from "statorgfc";
 import GdbVariable from "./GdbVariable";
 import constants from "./constants";
+import { Trans } from "react-i18next";
 
 class Expressions extends React.Component {
   objs_to_delete: any;
@@ -42,7 +43,7 @@ class Expressions extends React.Component {
     if (content.length === 0) {
       content.push(
         <span key="empty" className="placeholder">
-          no expressions in this context
+          <Trans>no expressions in this context</Trans>
         </span>
       );
     }
@@ -65,7 +66,7 @@ class Expressions extends React.Component {
           }}
           onKeyUp={Expressions.keydown_on_input}
         />
-
+        
         <p />
 
         {content}

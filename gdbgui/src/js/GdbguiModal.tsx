@@ -1,6 +1,7 @@
 import React from "react";
 import Actions from "./Actions";
 import { store } from "statorgfc";
+import { Trans } from "react-i18next";
 
 type State = any;
 
@@ -30,7 +31,7 @@ class Modal extends React.Component<{}, State> {
               className="close"
               onClick={Actions.toggle_modal_visibility}
             >
-              ×
+              <Trans>×</Trans>
             </button>
           </div>
 
@@ -44,7 +45,7 @@ class Modal extends React.Component<{}, State> {
             className="btn btn-success"
             onClick={Actions.toggle_modal_visibility}
           >
-            Close
+            <Trans>Close</Trans>
           </button>
           <div style={{ paddingBottom: "30px" }} />
         </div>

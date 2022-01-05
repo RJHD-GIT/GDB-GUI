@@ -1,6 +1,7 @@
 import ReactDOM from "react-dom";
 import React, { useState } from "react";
 import "../../static/css/tailwind.css";
+import { Trans } from "react-i18next";
 
 type GdbguiSession = {
   pid: number;
@@ -45,7 +46,7 @@ function GdbguiSession(props: { session: GdbguiSession; updateData: Function }) 
           className="leading-7 bg-blue-500 hover:bg-blue-700 border-blue-500 hover:border-blue-700 border-4 text-white py-2 px-2 rounded"
           type="button"
         >
-          Connect to Session
+          <Trans>Connect to Session</Trans>
         </a>
         <button
           className="bg-blue-500 hover:bg-blue-700 border-blue-500 hover:border-blue-700 border-4 text-white m-1 p-2 rounded align-middle"
@@ -53,7 +54,7 @@ function GdbguiSession(props: { session: GdbguiSession; updateData: Function }) 
           type="button"
           onClick={async () => {
             await navigator.clipboard.writeText(url);
-            setShareButtonText(<span>Copied!</span>);
+            setShareButtonText(<span><Trans>Copied!</Trans></span>);
             if (timeout) {
               clearTimeout(timeout);
             }
@@ -120,7 +121,7 @@ class StartCommand extends React.Component<any, { value: string }> {
   render() {
     return (
       <>
-        <div>Enter the gdb command to run in the session.</div>
+        <div><Trans>Enter the gdb command to run in the session.</Trans></div>
         <div className="flex w-full mx-auto items-center container">
           <input
             type="text"
@@ -139,7 +140,7 @@ class StartCommand extends React.Component<any, { value: string }> {
             type="button"
             onClick={this.handleSubmit}
           >
-            Start New Session
+            <Trans>Start New Session</Trans>
           </button>
         </div>
       </>
@@ -155,7 +156,7 @@ function Nav() {
           href={`${window.location.origin}/dashboard`}
           className="font-semibold text-xl tracking-tight"
         >
-          gdbgui
+          <Trans>gdbgui</Trans>
         </a>
       </div>
 
@@ -165,25 +166,25 @@ function Nav() {
             href="https://gdbgui.com"
             className="block mt-4 lg:inline-block lg:mt-0 text-blue-200 hover:text-white mr-4"
           >
-            Docs
+            <Trans>Docs</Trans>
           </a>
           <a
             href="https://www.youtube.com/channel/UCUCOSclB97r9nd54NpXMV5A"
             className="block mt-4 lg:inline-block lg:mt-0 text-blue-200 hover:text-white mr-4"
           >
-            YouTube
+            <Trans>YouTube</Trans>
           </a>
           <a
             href="https://github.com/cs01/gdbgui"
             className="block mt-4 lg:inline-block lg:mt-0 text-blue-200 hover:text-white mr-4"
           >
-            GitHub
+            <Trans>GitHub</Trans>
           </a>
           <a
             href="https://www.paypal.com/paypalme/grassfedcode/20"
             className="block mt-4 lg:inline-block lg:mt-0 text-blue-200 hover:text-white mr-4"
           >
-            Donate
+            <Trans>Donate</Trans>
           </a>
         </div>
       </div>
@@ -219,7 +220,7 @@ class Dashboard extends React.PureComponent<any, { sessions: GdbguiSession[] }> 
       <div className="w-full h-full min-h-screen flex flex-col">
         <Nav />
         <div className="flex-grow w-full h-full bg-gray-300 text-center p-5">
-          <div className="text-3xl font-semibold">Start new session</div>
+          <div className="text-3xl font-semibold"><Trans>Start new session</Trans></div>
           <StartCommand />
           <div className="mt-5 text-3xl font-semibold">
             {sessions.length === 1
@@ -229,10 +230,10 @@ class Dashboard extends React.PureComponent<any, { sessions: GdbguiSession[] }> 
           <table className="table-auto mx-auto">
             <thead>
               <tr>
-                <th className="px-4 py-2">Command</th>
-                <th className="px-4 py-2">PID</th>
-                <th className="px-4 py-2">Connected Browsers</th>
-                <th className="px-4 py-2">Start Time</th>
+                <th className="px-4 py-2"><Trans>Command</Trans></th>
+                <th className="px-4 py-2"><Trans>PID</Trans></th>
+                <th className="px-4 py-2"><Trans>Connected Browsers</Trans></th>
+                <th className="px-4 py-2"><Trans>Start Time</Trans></th>
                 <th className="px-4 py-2"></th>
               </tr>
             </thead>
@@ -240,9 +241,9 @@ class Dashboard extends React.PureComponent<any, { sessions: GdbguiSession[] }> 
           </table>
         </div>
         <footer className="h-40 bold text-lg bg-black text-gray-500 text-center flex flex-col justify-center">
-          <p>gdbgui</p>
-          <p>The browser-based frontend to gdb</p>
-          <a href="https://chadsmith.dev">Copyright Chad Smith</a>
+          <p><Trans>gdbgui</Trans></p>
+          <p><Trans>The browser-based frontend to gdb</Trans></p>
+          <a href="https://chadsmith.dev"><Trans>Copyright Chad Smith</Trans></a>
         </footer>
       </div>
     );

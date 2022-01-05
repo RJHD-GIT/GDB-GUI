@@ -33,6 +33,7 @@ import ToolTipTourguide from "./ToolTipTourguide";
 import "../../static/css/gdbgui.css";
 import "../../static/css/splitjs-gdbgui.css";
 import { Terminals } from "./Terminals";
+import { Trans } from "react-i18next";
 
 const store_options = {
   immutable: false,
@@ -94,9 +95,8 @@ class Gdbgui extends React.PureComponent {
             position={"topleft"}
             content={
               <div>
-                <h5>You can view gdb's output here.</h5>
-                You usually don't need to enter commands here, but you have the option to
-                if there is something you can't do in the UI.
+                <h5><Trans>You can view gdb's output here.</Trans></h5>
+                <Trans>You usually don't need to enter commands here, but you have the option to if there is something you can't do in the UI.</Trans>
               </div>
             }
           />

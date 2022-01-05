@@ -4,6 +4,7 @@
  */
 
 import React from "react";
+import { Trans } from "react-i18next";
 import { store } from "statorgfc";
 import constants from "./constants";
 import GdbVariable from "./GdbVariable";
@@ -61,7 +62,7 @@ class HoverVar extends React.Component {
         </div>
       );
     } else {
-      return <div className="hidden">no variable hovered</div>;
+      return <div className="hidden"><Trans>no variable hovered</Trans></div>;
     }
   }
   static mouseover_variable(e: any) {

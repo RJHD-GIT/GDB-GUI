@@ -10,8 +10,11 @@
     "lint": "prettier ./gdbgui/src/js/** --check"
   },
   "dependencies": {
+    "i18next": "^21.6.5",
+    "i18next-browser-languagedetector": "^6.1.2",
     "react": "^16.8",
     "react-dom": "^16.4",
+    "react-i18next": "^11.15.3",
     "socket.io": "^4.1",
     "socket.io-client": "^4.1",
     "statorgfc": "^0.1.6",

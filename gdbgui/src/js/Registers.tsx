@@ -9,6 +9,7 @@ import ReactTable from "./ReactTable";
 import Memory from "./Memory";
 import GdbApi from "./GdbApi";
 import register_descriptions from "./register_descriptions";
+import { Trans } from "react-i18next";
 
 const MAX_REGISTER_NAME_FETCH_COUNT = 5;
 let register_name_fetch_count = 0,
@@ -82,7 +83,7 @@ class Registers extends React.Component<{}, State> {
       num_register_values = Object.keys(store.get("current_register_values")).length;
 
     if (this.state.inferior_program !== constants.inferior_states.paused) {
-      return <span className="placeholder">no data to display</span>;
+      return <span className="placeholder"><Trans>no data to display</Trans></span>;
     }
 
     if (
@@ -161,7 +162,7 @@ class Registers extends React.Component<{}, State> {
         />
       );
     }
-    return <span className="placeholder">no data to display</span>;
+    return <span className="placeholder"><Trans>no data to display</Trans></span>;
   }
 }
 

@@ -1,80 +1,80 @@
-Thanks for your interest in contributing to gdbgui!
+感谢您有兴趣为 gdbgui 做出贡献！
 
-If your change is small, go ahead and submit a pull request. If it is substantial, create a GitHub issue to discuss it before making the change.
+如果您的更改很小，请继续提交拉取请求。 如果它很重要，请在进行更改之前创建一个 GitHub 问题来讨论它。
 
-## Dependencies
+## 依赖关系
 
-1.) [nox](https://github.com/theacodes/nox) is used to automate various tasks. You will need it installed on your system before continuing.
+1.) [nox](https://github.com/theacodes/nox) 用于自动化各种任务。 在继续之前，您需要在系统上安装它。
 
-You can install it with pipx (recommended):
+您可以使用 pipx 安装它（推荐）：
 ```
 > pipx install nox
 ```
-or pip:
+或者 pip:
 ```
 > pip install --user nox
 ```
 
-2.) [yarn](https://yarnpkg.com/) is used for managing JavaScript files
+2.) [yarn](https://yarnpkg.com/) 用于管理 JavaScript 文件
 
-## Developing
-Development can be done with one simple step:
+## 开发
+只需一个简单的步骤即可完成开发：
 ```
 > nox -s develop
 ```
-This will install all Python and JavaScript dependencies, and build and watch Python and JavaScript files for changes, automatically reloading as things are changed.
+这将安装所有 Python 和 JavaScript 依赖项，并构建和监视 Python 和 JavaScript 文件的更改，并在发生更改时自动重新加载。
 
-Make sure you [turn your cache off](https://www.technipages.com/google-chrome-how-to-completely-disable-cache) so that changes made locally are reflected in the page.
+确保您[关闭缓存](https://www.technipages.com/google-chrome-how-to-completely-disable-cache)，以便在页面中反映本地所做的更改。
 
-## Running and Adding tests
+## 运行和添加测试
 ```bash
 > nox
 ```
 
-runs all applicable tests and linting.
+运行所有适用的测试和 linting。
 
-Python tests are in `gdbgui/tests`. They are run as part of the above command, but can be run with
+Python 测试在 `gdbgui/tests`. 它们作为上述命令的一部分运行，但可以使用
 ```
 > nox -s python_tests
 ```
 
-JavaScript tests are in `gdbgui/src/js/tests`. They are run as part of the above command, but can be run with
+JavaScript 测试在 `gdbgui/src/js/tests`. 它们作为上述命令的一部分运行，但可以使用
 ```
 > nox -s js_tests
 ```
 
-## Documentation
+## 文档
 
-### Modifying Documentation
-Documentation is made with `mkdocs`. Then make changes to `mkdocs.yml` or md files in the `docs` directory.
+### 修改文档
+文档是用 `mkdocs` 制作的。 然后对 `docs` 目录中的 `mkdocs.yml` 或 md 文件进行更改。
 
-To build docs, run
+要构建文档，请运行
 ```
 nox -s docs
 ```
 
-To see a live preview of current documentation, run
+要查看当前文档的实时预览，请运行
 ```
 nox -s watch_docs
 ```
 
-### Publishing Documentation
-The generated documentation is published to the `gh-pages` branch.
+### 发布文档
+生成的文档发布到 `gh-pages` 分支。
 ```
 nox -s publish_docs
 ```
 
-### Building Binary Executables
+### 构建二进制可执行文件
 
-These are automatically built on CI, but can be built locally with corresponding `nox` commands, such as:
+这些是在 CI 上自动构建的，但可以使用相应的 `nox` 命令在本地构建，例如：
 
 ```
 nox -s build_executable_current_platform
 ```
 
-## Publishing a New Version
-1. Make sure the version number is incremented in `VERSION.txt`.
-1. The version to release must be on the master branch and have all CI tests pass and new binary executable artifacts attached to the GitHub action results
-1. Publish the package to PyPI and update documentation. Both are done with this `nox -s publish`.
-1. Create a "release" in GitHub and attach the gdbgui binary executable artifacts to it.
+## 发布新版本
+1. 确保版本号在 `VERSION.txt` 中递增。
+1. 要发布的版本必须在 master 分支上，并且所有 CI 测试都通过，并且新的二进制可执行工件附加到 GitHub 操作结果
+1. 将包发布到 PyPI 并更新文档。 两者都是用这个 `nox -s publish` 完成的。
+1. 在 GitHub 中创建一个“发布”并将 gdbgui 二进制可执行文件附加到它。
 

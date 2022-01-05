@@ -10,6 +10,7 @@ import Memory from "./Memory";
 import MemoryLink from "./MemoryLink";
 import constants from "./constants";
 import Actions from "./Actions";
+import { Trans } from "react-i18next";
 
 type State = any;
 
@@ -108,7 +109,7 @@ class SourceCode extends React.Component<{}, State> {
       case states.FETCHING_SOURCE: {
         return (
           <tr>
-            <td>fetching source, please wait</td>
+            <td><Trans>fetching source, please wait</Trans></td>
           </tr>
         );
       }
@@ -122,7 +123,7 @@ class SourceCode extends React.Component<{}, State> {
       case states.FETCHING_ASSM: {
         return (
           <tr>
-            <td>fetching assembly, please wait</td>
+            <td><Trans>fetching assembly, please wait</Trans></td>
           </tr>
         );
       }
@@ -132,14 +133,14 @@ class SourceCode extends React.Component<{}, State> {
           : null;
         return (
           <tr>
-            <td>cannot access address {paused_addr}</td>
+            <td><Trans>cannot access address</Trans> {paused_addr}</td>
           </tr>
         );
       }
       case states.FILE_MISSING: {
         return (
           <tr>
-            <td>file not found: {this.state.fullname_to_render}</td>
+            <td><Trans>file not found:</Trans> {this.state.fullname_to_render}</td>
           </tr>
         );
       }
@@ -309,7 +310,7 @@ class SourceCode extends React.Component<{}, State> {
           style={{ fontStyle: "italic", paddingLeft: "10px" }}
           className="pointer"
         >
-          view more
+          <Trans>view more</Trans>
         </td>
       </tr>
     );
@@ -319,7 +320,7 @@ class SourceCode extends React.Component<{}, State> {
       <tr key={linenum}>
         <td />
         <td style={{ fontStyle: "italic", paddingLeft: "10px", fontSize: "0.8em" }}>
-          (end of file)
+          <Trans>(end of file)</Trans>
         </td>
       </tr>
     );
@@ -468,7 +469,7 @@ class SourceCode extends React.Component<{}, State> {
   get_body_empty() {
     return (
       <tr>
-        <td>no source code or assembly to display</td>
+        <td><Trans>no source code or assembly to display</Trans></td>
       </tr>
     );
   }

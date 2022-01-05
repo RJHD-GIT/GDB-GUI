@@ -172,7 +172,7 @@ This release is focused mostly on Python 3.9 compatibility and updating dependen
 - Add dashboard to connect to/kill existing gdb processes
 - Add option to specify SSL key and certificate to enable https
 - Add option to connect to process
-- Add option to connect to gdbserver
+- Add option to 连接GDB服务
 - Add infinite scrolling
 
 ## 0.9.4.1

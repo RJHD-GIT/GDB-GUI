@@ -5,6 +5,7 @@ import constants from "./constants";
 import SourceFileAutocomplete from "./SourceFileAutocomplete";
 import FileSystem from "./FileSystem";
 import Actions from "./Actions";
+import { Trans } from "react-i18next";
 
 const default_rootnode = {
   name: 'Load inferior program, then click "Fetch source files" to populate this window',
@@ -66,7 +67,7 @@ class FoldersView extends React.Component<{}, State> {
           onClick={Actions.fetch_source_files}
           style={{ marginLeft: "5px", marginTop: "5px" }}
         >
-          Fetch source files
+          <Trans>Fetch source files</Trans>
         </button>
 
         <div style={{ width: "100%" }}>
@@ -74,25 +75,24 @@ class FoldersView extends React.Component<{}, State> {
         </div>
         <div role="group" className="btn-group btn-group" style={{ padding: "4px" }}>
           <button className="btn btn-xs btn-default" onClick={this.expand_all}>
-            Expand all
+            <Trans>Expand all</Trans>
           </button>
 
           <button className="btn btn-xs btn-default" onClick={this.collapse_all}>
-            Collapse all
+            <Trans>Collapse all</Trans>
           </button>
 
           <button
             className={"btn btn-xs btn-default " + (can_reveal ? "" : "hidden")}
             onClick={() => this.reveal_path(store.get("fullname_to_render"))}
           >
-            Reveal current file
+            <Trans>Reveal current file</Trans>
           </button>
         </div>
 
         {store.get("source_file_paths").length ? (
           <p style={{ color: "white", padding: "4px" }}>
-            {store.get("source_file_paths").length} known files used to compile the
-            inferior program
+            {store.get("source_file_paths").length} <Trans>known files used to compile the inferior program</Trans>
           </p>
         ) : (
           ""

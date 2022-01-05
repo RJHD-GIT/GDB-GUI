@@ -6,6 +6,7 @@ import Util from "./Util";
 import FileOps from "./FileOps";
 import { FileLink } from "./Links";
 import constants from "./constants";
+import { Trans } from "react-i18next";
 
 const BreakpointSourceLineCache = {
   _cache: {},
@@ -278,7 +279,7 @@ class Breakpoints extends React.Component {
     if (breakpoints_jsx.length) {
       return breakpoints_jsx;
     } else {
-      return <span className="placeholder">no breakpoints</span>;
+      return <span className="placeholder"><Trans>no breakpoints</Trans></span>;
     }
   }
   static enable_or_disable_bkpt(checked: any, bkpt_num: any) {

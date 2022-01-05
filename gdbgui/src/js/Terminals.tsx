@@ -6,6 +6,8 @@ import { store } from "statorgfc";
 import "xterm/css/xterm.css";
 import constants from "./constants";
 import Actions from "./Actions";
+import { useTranslation } from "react-i18next";
+import { t } from "i18next";
 
 function customKeyEventHandler(config: {
   pty_name: string;
@@ -122,11 +124,9 @@ export class Terminals extends React.Component {
         pidStoreKey: "inferior_pid"
       })
     );
+  
     programPty.write(constants.xtermColors.grey);
-    programPty.write(
-      "Program output -- Programs being debugged are connected to this terminal. " +
-        "You can read output and send input to the program from here."
-    );
+    programPty.write(("Program output -- Programs being debugged are connected to this terminal. You can read output and send input to the program from here."));
     programPty.writeln(constants.xtermColors.reset);
     GdbApi.getSocket().on("program_pty_response", function(pty_response: string) {
       programPty.write(pty_response);

@@ -13,6 +13,7 @@ import ReactTable from "./ReactTable";
 import MemoryLink from "./MemoryLink.tsx";
 import Actions from "./Actions";
 import React from "react";
+import { Trans } from "react-i18next";
 
 type State = any;
 
@@ -36,7 +37,7 @@ class Memory extends React.Component<{}, State> {
     if (Object.keys(store.get("memory_cache")).length === 0) {
       return (
         <span key="nothing" className="placeholder">
-          no memory to display
+          <Trans>no memory to display</Trans>
         </span>
       );
     }
@@ -58,7 +59,7 @@ class Memory extends React.Component<{}, State> {
         style={{ fontStyle: "italic", fontSize: "0.8em" }}
         onClick={Memory.click_read_preceding_memory}
       >
-        more
+        <Trans>more</Trans>
       </span>,
       "",
       ""
@@ -112,7 +113,7 @@ class Memory extends React.Component<{}, State> {
           style={{ fontStyle: "italic", fontSize: "0.8em" }}
           onClick={Memory.click_read_more_memory}
         >
-          more
+          <Trans>more</Trans>
         </span>,
         "",
         ""

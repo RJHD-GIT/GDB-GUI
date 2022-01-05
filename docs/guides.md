@@ -102,7 +102,7 @@ gdbserver runs on a remote machine or embedded target, which, as the name sugges
 
 `gdbserver :9000 mybinary.a`
 
-Then you can launch `gdb` or `gdbgui` and connect to it. In `gdbgui`, use the dropdown to select `Connect to gdbserver`, and enter
+Then you can launch `gdb` or `gdbgui` and connect to it. In `gdbgui`, use the dropdown to select `连接GDB服务`, and enter
 
 `<remote ip address>:9000`
 
